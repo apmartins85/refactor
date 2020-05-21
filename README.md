@@ -17,13 +17,13 @@
 * Create helm chart skeleton
 `helm3 create  helmhello`
 * Set up value.yaml
-* Set up template.yaml
+* Set up templates/deployment.yaml
 * Deploy on k8
 `helm3 install $APP_NAME ./helmhello`
 
 ### To have a pipeline (gitlaci)
 
-* Create stages
+* Create stages to deploy the container into kubernetes cluster
 
 # EPIC: Hello World on AWS :rocket:
 
