@@ -8,7 +8,7 @@
 * Create branch
 * Create docker file
 * Create service.yml
-* Build and test (Push push to second part) 
+* Build and test (push to second part) 
 `docker build --tag helloworld-kotlin:1.0.0 .`
 `docker run -p 8080:8080 helloworld-kotlin:1.0.0`
 
