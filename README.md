@@ -33,8 +33,8 @@
 
 * Create EC2
 * Create ASG
-* Creat SG
-* Creat sg ELB
+* Create SG
+* Create sg ELB
 * Create ELB
 * Create var
 * Create bootstrap
