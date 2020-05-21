@@ -1,0 +1,37 @@
+stages:
+  - plan
+  - apply
+  - destroy
+
+plan:
+  stage: plan
+  before_script: 
+    - export TF_VAR_aws_access_key=$AWS_ACCESS_KEY_ID
+    - export TF_VAR_aws_secret_key=$AWS_SECRET_ACCESS_KEY
+    - export TF_VAR_pub_key=KEY_PATH
+
+  script:
+    - terraform init
+    - terraform plan
+
+apply:
+  stage: apply
+  before_script: 
+    - export TF_VAR_aws_access_key=$AWS_ACCESS_KEY_ID
+    - export TF_VAR_aws_secret_key=$AWS_SECRET_ACCESS_KEY
+    - terraform init
+  script:
+    - terraform apply --auto-approve
+
+destroy:
+  stage: destroy
+  when: manual
+  dependencies:
+    - terraform-apply
+  before_script:
+    - export TF_VAR_aws_access_key=$AWS_ACCESS_KEY_ID
+    - export TF_VAR_aws_secret_key=$AWS_SECRET_ACCESS_KEY
+    - export TF_VAR_pub_key=KEY_PATH
+    - terraform init
+  script:
+    - terraform destroy -auto-approve
