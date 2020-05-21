@@ -8,19 +8,18 @@
 * Create branch
 * Create docker file
 * Create service.yml
-* Build and Push into docker hub 
-`docker build --tag helloworld-kotlin:x.0.0 .`
-`docker run -p 8080:8080 helloworld-kotlin:4.0.0`
+* Build and test (Push push to second part) 
+`docker build --tag helloworld-kotlin:1.0.0 .`
+`docker run -p 8080:8080 helloworld-kotlin:1.0.0`
 
 ### To have container deployed on k8 env
 
 * Create helm chart skeleton
-`helm3 create  helloworld*kotlin`
+`helm3 create  helmhello`
 * Set up value.yaml
 * Set up template.yaml
 * Deploy on k8
-`helm3 install helloworld-kotlin`
-`helm3 install helloworld-kotlin ./helloworld-kotlin/`
+`helm3 install $APP_NAME ./helmhello`
 
 ### To have a pipeline (gitlaci)
 
