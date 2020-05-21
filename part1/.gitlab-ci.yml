@@ -1,0 +1,22 @@
+stages:
+  - lint
+  - deploy
+  - uninstall
+
+lint:
+  stage: lint
+  script:
+    - echo "Lint helm chart"
+    - helm3 lint helmhello
+
+deploy_helm_chart: 
+  stage: deploy
+  script:
+    - echo "Deploy helm chart"
+    - helm3 install hellohelm ./helmhello
+
+uninstall_helm_chart:
+  stage: uninstall
+  script:
+    - echo "Unistall helm chart"
+    - helm3 uninstall hellohelm ./helmhello
